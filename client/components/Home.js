@@ -10,33 +10,13 @@ import {createWorld} from '../world.js'
 class Home extends Component {
   constructor() {
     super()
-    this.world = ["#####################################################################",
-    "#                 ####         ****                          *  *  ##",
-    "#   *  Ö  ##                 ########       oo                     ##",
-    "#   *    ##        o o                 ****                ###     *#",
-    "#       ##*                        ##########         Ö      ##*   *#",
-    "#      ##***  *         ****                                 ##*  **#",
-    "#* **  #  *  ***      #########       Ö                       ### **#",
-    "#* **  #      *               #   *         ##         Ö          **#",
-    "#     ##              #   o   #  ***         ###              #    ##",
-    "#*            Ö       #       #   *        o  ##             ###    #",
-    "#*                    #  ######                             ###     #",
-    "###          ****          ***                                      #",
-    "#       o                                  o       # ###      **    #",
-    "#   *     ##  ##  ##  ##               ###         #########  ***   #",
-    "#   **         #              *       #####  o     *****####        #",
-    "##  **  o   o  #  #    ***  ***   Ö    ###              ****       o#",
-    "###               #   *****                                         #",
-    "#####################################################################"]
-
-
   }
 
   render() {
     return (
       <div>
         <h1>Hello World</h1>
-        <table><tbody>{this.world.map(row => {
+        <table><tbody>{this.props.world.map(row => {
           return <tr>{row.split('').map(cell => {
             return <td>{cell}</td>
           })}</tr>
@@ -47,8 +27,10 @@ class Home extends Component {
 
 }
 
-const mapState = (state) => {
-  return {}
+const mapState = state => {
+  return {
+    world: state.world
+  }
 }
 
 const mapDispatch = (dispatch) => {
